@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
-enum CardType { red, blue, green, yellow }
+enum CardType { red, blue, green, yellow, orange, purple }
 
 class ColorService extends ChangeNotifier {
   final Map<CardType, int> _counts = {
-    CardType.red: 0,
-    CardType.blue: 0,
-    CardType.green: 0,
-    CardType.yellow: 0,
+    for (var type in CardType.values) type: 0,
   };
 
   int getCount(CardType type) => _counts[type] ?? 0;
@@ -23,6 +20,8 @@ class ColorService extends ChangeNotifier {
       CardType.blue => Colors.blue,
       CardType.green => Colors.green,
       CardType.yellow => Colors.yellow,
+      CardType.orange => Colors.orange,
+      CardType.purple => Colors.purple,
     };
   }
 }

@@ -54,13 +54,12 @@ class ColorTapsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Color Taps')),
-      body: Column(
-        children: const [
-          ColorTap(type: CardType.red),
-          ColorTap(type: CardType.blue),
-          ColorTap(type: CardType.green),
-          ColorTap(type: CardType.yellow),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: CardType.values
+              .map((type) => ColorTap(type: type))
+              .toList(),
+        ),
       ),
     );
   }
