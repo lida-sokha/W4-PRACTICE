@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theory_lesson/W4-PRACTICE/2_download_app/ui/screens/downloads/widgets/download_tile.dart';
 import '../../providers/theme_color_provider.dart';
 import '../../theme/theme.dart';
 import 'widgets/download_controler.dart';
@@ -36,6 +37,15 @@ class DownloadsScreen extends StatelessWidget {
                 "Downloads",
                 textAlign: TextAlign.center,
                 style: AppTextStyles.heading.copyWith(color: activeTheme.color),
+              ),
+              const SizedBox(height: 24),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: controllers.length,
+                  itemBuilder: (context, index) {
+                    return DownloadTile(controller: controllers[index]);
+                  },
+                ),
               ),
             ],
           ),
